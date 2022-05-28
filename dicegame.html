@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 70%;
+        margin: auto;
+        text-align: center;
+      }
+      .dice {
+        text-align: center;
+        display: inline-block;
+      }
+      body {
+        background-color: #393e46;
+      }
+      h1 {
+        margin: 30px;
+        font-family: "lobster", cursive;
+        text-shadow: 5px 0 #232931;
+        font-size: 8rem;
+        color: #4ecca3;
+      }
+      p {
+        font-size: 2rem;
+        color: #4ecca3;
+        font-family: "Indie Flower", cursive;
+      }
+      img {
+        width: 80%;
+      }
+      h2 {
+        color: white;
+        tab-size: 30px;
+      }
+      h2 span {
+        color: orchid;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>PISASU</h1>
+      <div class="dice">
+        <p>Player 1</p>
+        <img src=".//images/dice6.png" alt="image-1" class="img1" />
+      </div>
+      <div class="dice">
+        <p>Player 2</p>
+        <img src=".//images/dice6.png" alt="image-2" class="img2" />
+      </div>
+      <h2 class="wins">The Winner is: <span></span></h2>
+    </div>
+    <!-- Java Script code :Start -->
+    <script>
+      var randomNumber1 = Math.floor(Math.random() * 6) + 1; //it wil give  1 to 6
+      var randomDiceImage = "dice" + randomNumber1 + ".png"; //dice 1 to dice 6
+      var randomImageSource = "images/" + randomDiceImage; //to append the folder name before
+      var img1 = document.querySelectorAll("img")[0];
+      img1.setAttribute("src", randomImageSource);
+      /* THis is for Dice 2 */
+      var randomNumber2 = Math.floor(Math.random() * 6) + 1; //it wil give  1 to 6
+      var randomDiceImage2 = "dice" + randomNumber2 + ".png"; //dice 1 to dice 6
+      var randomImageSource2 = "images/" + randomDiceImage2; //to append the folder name before
+      var img2 = document.querySelectorAll("img")[1];
+      img2.setAttribute("src", randomImageSource2);
+
+      if (randomNumber1 > randomNumber2) {
+        document.querySelector(".wins span").innerHTML = "Player 1";
+        document.querySelectorAll(".dice p")[0].style.color = "blue";
+      } else if (randomNumber1 < randomNumber2) {
+        document.querySelector(".wins span").innerHTML = "Player 2";
+        document.querySelectorAll(".dice p")[1].style.color = "yellow";
+      } else {
+        document.querySelector(".wins span").innerHTML = "Match Drawn";
+      }
+    </script>
+  </body>
+</html>
